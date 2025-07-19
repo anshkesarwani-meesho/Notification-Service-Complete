@@ -1,0 +1,110 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: notification-service
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/notification_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  
+  # Redis Configuration
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+  
+  # Elasticsearch Configuration
+  elasticsearch:
+    uris: http://${ELASTICSEARCH_HOST:localhost}:${ELASTICSEARCH_PORT:9200}
+    connection-timeout: 5s
+    socket-timeout: 30s
+  
+  # Kafka Configuration
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      properties:
+        enable.idempotence: true
+    consumer:
+      group-id: ${KAFKA_GROUP_ID:notification-service-group}
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.notification.dto"
+      auto-offset-reset: earliest
+
+# Custom Application Properties
+notification:
+  sms:
+    provider:
+      url: ${SMS_PROVIDER_URL:https://api.imiconnect.in/resources/v1/messaging}
+      key: ${SMS_API_KEY}
+    rate-limit:
+      per-minute: ${SMS_RATE_LIMIT_PER_MINUTE:100}
+      per-hour: ${SMS_RATE_LIMIT_PER_HOUR:1000}
+    max-retries: ${SMS_MAX_RETRIES:3}
+    retry-delay-ms: ${SMS_RETRY_DELAY_MS:1000}
+  
+  redis:
+    ttl:
+      sms-request: ${SMS_REQUEST_TTL:24h}
+
+# Elasticsearch Configuration
+elasticsearch:
+  host: ${ELASTICSEARCH_HOST:localhost}
+  port: ${ELASTICSEARCH_PORT:9200}
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  tracing:
+    enabled: false
+    sampling:
+      probability: 1.0 
+
+logging:
+  level:
+    root: ${LOG_LEVEL_ROOT:INFO}
+    com.notification: ${LOG_LEVEL_APP:DEBUG}
+    com.notification.service.SmsService: ${LOG_LEVEL_SMS:DEBUG}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  kafka:
+    enabled: false
+  redis:
+    enabled: false 

@@ -1,0 +1,261 @@
+2025-06-23 11:42:13.809 [main] INFO  com.notification.NotificationServiceApplication - Starting NotificationServiceApplication using Java 17.0.15 with PID 3809 (/Users/anshkesarwani/Desktop/notification-service/target/classes started by anshkesarwani in /Users/anshkesarwani/Desktop/notification-service)
+2025-06-23 11:42:13.813 [main] INFO  com.notification.NotificationServiceApplication - The following 1 profile is active: "dev"
+2025-06-23 11:42:16.334 [main] INFO  com.notification.NotificationServiceApplication - Started NotificationServiceApplication in 2.652 seconds (process running for 2.89)
+2025-06-23 11:42:48.527 [http-nio-8080-exec-5] WARN  com.notification.controller.GlobalExceptionHandler - Validation error: {phoneNumber=Phone number must be 10 digits}
+2025-06-23 11:43:13.823 [http-nio-8080-exec-6] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919876543212
+2025-06-23 11:43:13.827 [http-nio-8080-exec-6] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919876543212, message=Hello from Notification Service!, requestId=req-1750659193828-061ef743)
+2025-06-23 11:43:14.123 [http-nio-8080-exec-6] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 91 to Elasticsearch at 2025-06-23T06:13:13.983768
+2025-06-23 11:43:14.126 [http-nio-8080-exec-6] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919876543212, message=Hello from Notification Service!, requestId=req-1750659194126-f77efce9)
+2025-06-23 11:43:14.377 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919876543212 from Kafka topic sms-request-topic (partition: 0, offset: 13)
+2025-06-23 11:43:14.378 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919876543212 via 3rd party API
+2025-06-23 11:43:14.726 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919876543212 with requestId: req-1750659194239-9ce05926
+2025-06-23 11:43:14.794 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 91 to Elasticsearch at 2025-06-23T06:13:13.983768
+2025-06-23 11:43:14.794 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 91 to Elasticsearch
+2025-06-23 11:43:14.794 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919876543212, external ID: req-1750659194239-9ce05926
+2025-06-23 11:43:14.794 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=req-1750659194239-9ce05926, comments=SMS sent successfully, phoneNumber=+919876543212, id=91), error=null)
+2025-06-23 11:43:14.799 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919876543212
+2025-06-23 11:43:23.475 [http-nio-8080-exec-8] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919876543213
+2025-06-23 11:43:23.476 [http-nio-8080-exec-8] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919876543213, message=Test message for search functionality, requestId=req-1750659203476-f9305723)
+2025-06-23 11:43:23.509 [http-nio-8080-exec-8] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 92 to Elasticsearch at 2025-06-23T06:13:23.479302
+2025-06-23 11:43:23.509 [http-nio-8080-exec-8] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919876543213, message=Test message for search functionality, requestId=req-1750659203509-1c8a7c20)
+2025-06-23 11:43:23.520 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919876543213 from Kafka topic sms-request-topic (partition: 0, offset: 14)
+2025-06-23 11:43:23.520 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919876543213 via 3rd party API
+2025-06-23 11:43:23.608 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919876543213 with requestId: req-1750659203509-c7d13728
+2025-06-23 11:43:23.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 92 to Elasticsearch at 2025-06-23T06:13:23.479302
+2025-06-23 11:43:23.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 92 to Elasticsearch
+2025-06-23 11:43:23.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919876543213, external ID: req-1750659203509-c7d13728
+2025-06-23 11:43:23.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=req-1750659203509-c7d13728, comments=SMS sent successfully, phoneNumber=+919876543213, id=92), error=null)
+2025-06-23 11:43:23.642 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919876543213
+2025-06-23 11:43:28.192 [http-nio-8080-exec-10] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919876543214
+2025-06-23 11:43:28.193 [http-nio-8080-exec-10] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919876543214, message=Another test message with different content, requestId=req-1750659208193-af37cf8c)
+2025-06-23 11:43:28.225 [http-nio-8080-exec-10] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 93 to Elasticsearch at 2025-06-23T06:13:28.196230
+2025-06-23 11:43:28.225 [http-nio-8080-exec-10] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919876543214, message=Another test message with different content, requestId=req-1750659208225-bb329162)
+2025-06-23 11:43:28.234 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919876543214 from Kafka topic sms-request-topic (partition: 0, offset: 15)
+2025-06-23 11:43:28.235 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919876543214 via 3rd party API
+2025-06-23 11:43:28.273 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919876543214 with requestId: req-1750659208225-65a47b2d
+2025-06-23 11:43:28.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 93 to Elasticsearch at 2025-06-23T06:13:28.196230
+2025-06-23 11:43:28.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 93 to Elasticsearch
+2025-06-23 11:43:28.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919876543214, external ID: req-1750659208225-65a47b2d
+2025-06-23 11:43:28.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=req-1750659208225-65a47b2d, comments=SMS sent successfully, phoneNumber=+919876543214, id=93), error=null)
+2025-06-23 11:43:28.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919876543214
+2025-06-23 11:43:37.428 [http-nio-8080-exec-2] INFO  com.notification.controller.SmsController - Fetching SMS request with ID: 91
+2025-06-23 11:43:37.428 [http-nio-8080-exec-2] INFO  com.notification.service.SmsService - Retrieving SMS request with ID: 91
+2025-06-23 11:43:43.854 [http-nio-8080-exec-4] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=+919876543212, startTime=null, endTime=null, text=null
+2025-06-23 11:43:43.855 [http-nio-8080-exec-4] INFO  com.notification.service.SmsService - Searching SMS requests by phone number using Elasticsearch: +919876543212, page: 0, size: 10
+2025-06-23 11:46:43.296 [http-nio-8080-exec-6] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=Hello
+2025-06-23 11:46:43.296 [http-nio-8080-exec-6] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: Hello, page: 0, size: 10
+2025-06-23 11:46:43.308 [http-nio-8080-exec-6] WARN  com.notification.service.SmsService - Could not convert document ID 'IFbdkZcBGr8drKig_ETL' to Long, using null
+2025-06-23 11:48:29.334 [http-nio-8080-exec-8] INFO  com.notification.controller.BlacklistController - Adding 2 phone numbers to blacklist
+2025-06-23 11:48:47.021 [http-nio-8080-exec-10] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 11:48:58.679 [http-nio-8080-exec-2] INFO  com.notification.controller.BlacklistController - Removing 1 phone numbers from blacklist
+2025-06-23 11:49:11.355 [http-nio-8080-exec-4] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T00:00:00Z, endTime=2025-06-23T23:59:59Z, text=null
+2025-06-23 11:49:11.356 [http-nio-8080-exec-4] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T00:00 to 2025-06-23T23:59:59, page: 0, size: 10
+2025-06-23 11:50:38.371 [http-nio-8080-exec-6] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T00:00:00Z, endTime=2025-06-23T13:15:59Z, text=null
+2025-06-23 11:50:38.372 [http-nio-8080-exec-6] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T00:00 to 2025-06-23T13:15:59, page: 0, size: 10
+2025-06-23 11:51:40.098 [http-nio-8080-exec-8] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T00:00:00Z, endTime=2025-06-23T06:13:50Z, text=null
+2025-06-23 11:51:40.098 [http-nio-8080-exec-8] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T00:00 to 2025-06-23T06:13:50, page: 0, size: 10
+2025-06-23 11:52:13.803 [http-nio-8080-exec-10] WARN  com.notification.controller.GlobalExceptionHandler - Validation error: {phoneNumber=Phone number must be 10 digits}
+2025-06-23 11:52:28.631 [http-nio-8080-exec-1] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919876543211
+2025-06-23 11:52:28.632 [http-nio-8080-exec-1] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919876543211, message=Hello from Notification Service!, requestId=req-1750659748632-029a4733)
+2025-06-23 11:52:28.690 [http-nio-8080-exec-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 94 to Elasticsearch at 2025-06-23T06:22:28.635886
+2025-06-23 11:52:28.691 [http-nio-8080-exec-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919876543211, message=Hello from Notification Service!, requestId=req-1750659748691-affccf40)
+2025-06-23 11:52:28.706 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919876543211 from Kafka topic sms-request-topic (partition: 0, offset: 16)
+2025-06-23 11:52:28.707 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919876543211 via 3rd party API
+2025-06-23 11:52:28.935 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919876543211 with requestId: req-1750659748691-13c0c138
+2025-06-23 11:52:28.974 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 94 to Elasticsearch at 2025-06-23T06:22:28.635886
+2025-06-23 11:52:28.974 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 94 to Elasticsearch
+2025-06-23 11:52:28.974 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919876543211, external ID: req-1750659748691-13c0c138
+2025-06-23 11:52:28.974 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=req-1750659748691-13c0c138, comments=SMS sent successfully, phoneNumber=+919876543211, id=94), error=null)
+2025-06-23 11:52:28.977 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919876543211
+2025-06-23 11:53:29.235 [http-nio-8080-exec-3] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T06:20:00Z, endTime=2025-06-23T06:22:50Z, text=null
+2025-06-23 11:53:29.236 [http-nio-8080-exec-3] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T06:20 to 2025-06-23T06:22:50, page: 0, size: 10
+2025-06-23 12:14:00.560 [main] INFO  com.notification.NotificationServiceApplication - Starting NotificationServiceApplication using Java 17.0.15 with PID 7640 (/Users/anshkesarwani/Desktop/notification-service/target/classes started by anshkesarwani in /Users/anshkesarwani/Desktop/notification-service)
+2025-06-23 12:14:00.562 [main] INFO  com.notification.NotificationServiceApplication - The following 1 profile is active: "dev"
+2025-06-23 12:14:02.894 [main] INFO  com.notification.NotificationServiceApplication - Started NotificationServiceApplication in 2.46 seconds (process running for 2.68)
+2025-06-23 12:14:25.730 [http-nio-8080-exec-3] INFO  com.notification.controller.SmsController - Fetching SMS request with ID: 91
+2025-06-23 12:14:25.857 [http-nio-8080-exec-3] INFO  com.notification.service.SmsService - SMS request 91 not found in cache, retrieving from database
+2025-06-23 12:14:25.886 [http-nio-8080-exec-3] INFO  com.notification.service.SmsService - SMS request 91 stored in cache for 24 hours
+2025-06-23 12:14:33.926 [http-nio-8080-exec-5] INFO  com.notification.controller.SmsController - Fetching SMS request with ID: 91
+2025-06-23 12:14:33.934 [http-nio-8080-exec-5] INFO  com.notification.service.SmsService - SMS request 91 found in cache
+2025-06-23 12:18:23.654 [http-nio-8080-exec-7] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 12:18:42.441 [http-nio-8080-exec-9] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 13:01:29.429 [http-nio-8080-exec-1] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 13:01:43.582 [http-nio-8080-exec-3] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 13:02:40.707 [http-nio-8080-exec-5] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 13:03:02.129 [http-nio-8080-exec-7] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 13:17:52.205 [http-nio-8080-exec-9] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=ansh
+2025-06-23 13:17:52.205 [http-nio-8080-exec-9] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: ansh, page: 0, size: 10
+2025-06-23 13:17:52.283 [http-nio-8080-exec-9] WARN  com.notification.service.SmsService - Could not convert document ID 'IVbekZcBGr8drKigFUS7' to Long, using null
+2025-06-23 13:17:52.283 [http-nio-8080-exec-9] WARN  com.notification.service.SmsService - Could not convert document ID 'H1bdkZcBGr8drKig4kT3' to Long, using null
+2025-06-23 13:18:15.779 [http-nio-8080-exec-1] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=text
+2025-06-23 13:18:15.779 [http-nio-8080-exec-1] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: text, page: 0, size: 10
+2025-06-23 13:18:25.958 [http-nio-8080-exec-2] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=Text
+2025-06-23 13:18:25.958 [http-nio-8080-exec-2] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: Text, page: 0, size: 10
+2025-06-23 13:18:40.947 [http-nio-8080-exec-3] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919140021436
+2025-06-23 13:18:40.948 [http-nio-8080-exec-3] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919140021436, message=text, requestId=req-1750664920949-f9c4c567)
+2025-06-23 13:18:41.031 [http-nio-8080-exec-3] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 95 to Elasticsearch at 2025-06-23T07:48:40.963312
+2025-06-23 13:18:41.035 [http-nio-8080-exec-3] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919140021436, message=text, requestId=req-1750664921035-cc842e06)
+2025-06-23 13:18:41.077 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919140021436 from Kafka topic sms-request-topic (partition: 0, offset: 17)
+2025-06-23 13:18:41.078 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919140021436 via 3rd party API
+2025-06-23 13:18:41.641 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919140021436 with requestId: req-1750664921058-8772e1af
+2025-06-23 13:18:41.690 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 95 to Elasticsearch at 2025-06-23T07:48:40.963312
+2025-06-23 13:18:41.690 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 95 to Elasticsearch
+2025-06-23 13:18:41.690 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919140021436, external ID: req-1750664921058-8772e1af
+2025-06-23 13:18:41.691 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=req-1750664921058-8772e1af, comments=SMS sent successfully, phoneNumber=+919140021436, id=95), error=null)
+2025-06-23 13:18:41.695 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919140021436
+2025-06-23 13:19:07.076 [http-nio-8080-exec-4] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=Text
+2025-06-23 13:19:07.076 [http-nio-8080-exec-4] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: Text, page: 0, size: 10
+2025-06-23 13:19:18.536 [http-nio-8080-exec-5] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=null, endTime=null, text=text
+2025-06-23 13:19:18.537 [http-nio-8080-exec-5] INFO  com.notification.service.SmsService - Searching SMS requests by text using Elasticsearch: text, page: 0, size: 10
+2025-06-23 13:19:48.613 [http-nio-8080-exec-6] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T00:00:00Z, endTime=2025-06-23T23:59:59Z, text=null
+2025-06-23 13:19:48.613 [http-nio-8080-exec-6] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T00:00 to 2025-06-23T23:59:59, page: 0, size: 10
+2025-06-23 13:20:38.004 [http-nio-8080-exec-7] INFO  com.notification.controller.SmsController - Searching SMS requests with filters: phoneNumber=null, startTime=2025-06-23T00:00:00Z, endTime=2025-06-23T23:59:59Z, text=null
+2025-06-23 13:20:38.005 [http-nio-8080-exec-7] INFO  com.notification.service.SmsService - Searching SMS requests by date range using Elasticsearch: 2025-06-23T00:00 to 2025-06-23T23:59:59, page: 0, size: 10
+2025-06-23 13:20:46.887 [http-nio-8080-exec-8] INFO  com.notification.controller.BlacklistController - Adding 1 phone numbers to blacklist
+2025-06-23 13:20:54.322 [http-nio-8080-exec-10] INFO  com.notification.controller.BlacklistController - Adding 1 phone numbers to blacklist
+2025-06-23 13:20:58.184 [http-nio-8080-exec-9] INFO  com.notification.controller.BlacklistController - Retrieving all blacklisted phone numbers
+2025-06-23 14:44:25.134 [main] INFO  com.notification.NotificationServiceApplication - Starting NotificationServiceApplication using Java 23.0.2 with PID 22423 (/Users/anshkesarwani/Desktop/notification-service/target/classes started by anshkesarwani in /Users/anshkesarwani/Desktop/notification-service)
+2025-06-23 14:44:25.136 [main] INFO  com.notification.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-23 14:47:58.224 [main] INFO  com.notification.NotificationServiceApplication - Starting NotificationServiceApplication using Java 23.0.2 with PID 22882 (/Users/anshkesarwani/Desktop/notification-service/target/classes started by anshkesarwani in /Users/anshkesarwani/Desktop/notification-service)
+2025-06-23 14:47:58.227 [main] INFO  com.notification.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-23 14:49:25.789 [main] INFO  com.notification.NotificationServiceApplication - Starting NotificationServiceApplication using Java 23.0.2 with PID 23122 (/Users/anshkesarwani/Desktop/notification-service/target/classes started by anshkesarwani in /Users/anshkesarwani/Desktop/notification-service)
+2025-06-23 14:49:25.791 [main] INFO  com.notification.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-23 14:49:28.244 [main] INFO  com.notification.NotificationServiceApplication - Started NotificationServiceApplication in 2.58 seconds (process running for 2.829)
+2025-06-23 14:49:47.374 [http-nio-8080-exec-1] ERROR com.notification.controller.GlobalExceptionHandler - Unexpected error: No static resource health.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource health.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.41.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.41.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:114) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+2025-06-23 14:50:30.244 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +1234567890 from Kafka topic sms-request-topic (partition: 0, offset: 18)
+2025-06-23 14:50:30.303 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +1234567890 via 3rd party API
+2025-06-23 14:50:30.679 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +1234567890 with requestId: test-123
+2025-06-23 14:50:30.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 14 to Elasticsearch at 2025-06-14T20:00:11.331982
+2025-06-23 14:50:30.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 14 to Elasticsearch
+2025-06-23 14:50:30.756 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +1234567890, external ID: test-123
+2025-06-23 14:50:30.757 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=test-123, comments=SMS sent successfully, phoneNumber=+1234567890, id=14), error=null)
+2025-06-23 14:50:30.785 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +1234567890
+2025-06-23 14:51:04.997 [http-nio-8080-exec-4] ERROR com.notification.controller.GlobalExceptionHandler - Unexpected error: No static resource api/sms/send.
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/sms/send.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.41.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.7.jar:6.2.7]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.41.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:114) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.7.jar:6.2.7]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.41.jar:10.1.41]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+2025-06-23 14:51:12.991 [http-nio-8080-exec-5] WARN  com.notification.controller.GlobalExceptionHandler - Validation error: {phoneNumber=Phone number must be 10 digits}
+2025-06-23 14:51:19.506 [http-nio-8080-exec-6] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919876543210
+2025-06-23 14:51:19.510 [http-nio-8080-exec-6] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919876543210, message=Test SMS from API, requestId=api-test-123)
+2025-06-23 14:51:19.514 [http-nio-8080-exec-6] WARN  com.notification.service.SmsService - SMS request rejected - phone number +919876543210 is blacklisted
+2025-06-23 14:51:23.978 [http-nio-8080-exec-8] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +911234567890
+2025-06-23 14:51:23.979 [http-nio-8080-exec-8] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+911234567890, message=Test SMS from API, requestId=api-test-456)
+2025-06-23 14:51:24.026 [http-nio-8080-exec-8] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 96 to Elasticsearch at 2025-06-23T09:21:23.986474
+2025-06-23 14:51:24.027 [http-nio-8080-exec-8] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+911234567890, message=Test SMS from API, requestId=api-test-456)
+2025-06-23 14:51:24.035 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +911234567890 from Kafka topic sms-request-topic (partition: 0, offset: 19)
+2025-06-23 14:51:24.035 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +911234567890 via 3rd party API
+2025-06-23 14:51:24.132 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +911234567890 with requestId: api-test-456
+2025-06-23 14:51:24.166 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 96 to Elasticsearch at 2025-06-23T09:21:23.986474
+2025-06-23 14:51:24.166 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 96 to Elasticsearch
+2025-06-23 14:51:24.166 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +911234567890, external ID: api-test-456
+2025-06-23 14:51:24.166 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=api-test-456, comments=SMS sent successfully, phoneNumber=+911234567890, id=96), error=null)
+2025-06-23 14:51:24.166 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +911234567890
+2025-06-23 14:56:20.218 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +915555555555 from Kafka topic sms-request-topic (partition: 0, offset: 20)
+2025-06-23 14:56:20.222 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +915555555555 via 3rd party API
+2025-06-23 14:56:20.384 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +915555555555 with requestId: test-latest-123
+2025-06-23 14:56:20.387 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +915555555555, external ID: test-latest-123
+2025-06-23 14:56:20.387 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=test-latest-123, comments=SMS sent successfully, phoneNumber=+915555555555, id=null), error=null)
+2025-06-23 14:56:20.387 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +915555555555
+2025-06-23 14:57:38.147 [http-nio-8080-exec-10] INFO  com.notification.controller.SmsController - Received SMS send request for phone number: +919999999999
+2025-06-23 14:57:38.148 [http-nio-8080-exec-10] INFO  com.notification.service.SmsService - Processing SMS request: SmsRequestDto(phoneNumber=+919999999999, message=Demo message from API to Kafka, requestId=demo-api-123)
+2025-06-23 14:57:38.200 [http-nio-8080-exec-10] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 97 to Elasticsearch at 2025-06-23T09:27:38.151576
+2025-06-23 14:57:38.201 [http-nio-8080-exec-10] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS request to topic sms-request-topic: SmsRequestDto(phoneNumber=+919999999999, message=Demo message from API to Kafka, requestId=demo-api-123)
+2025-06-23 14:57:38.213 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Processing SMS request for phone +919999999999 from Kafka topic sms-request-topic (partition: 0, offset: 21)
+2025-06-23 14:57:38.215 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - Sending SMS to +919999999999 via 3rd party API
+2025-06-23 14:57:38.433 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.SmsProviderService - SMS sent successfully to +919999999999 with requestId: demo-api-123
+2025-06-23 14:57:38.467 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.service.ElasticsearchService - Indexed SMS request with ID: 97 to Elasticsearch at 2025-06-23T09:27:38.151576
+2025-06-23 14:57:38.467 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Indexed SMS request with ID 97 to Elasticsearch
+2025-06-23 14:57:38.467 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - SMS sent successfully for phone +919999999999, external ID: demo-api-123
+2025-06-23 14:57:38.467 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaProducer - Sending SMS response to topic sms-response-topic: SmsResponseDto(id=null, phoneNumber=null, message=null, status=null, createdAt=null, updatedAt=null, data=SmsResponseDto.SuccessData(requestId=demo-api-123, comments=SMS sent successfully, phoneNumber=+919999999999, id=97), error=null)
+2025-06-23 14:57:38.467 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  com.notification.kafka.SmsKafkaConsumer - Successfully processed SMS request for phone +919999999999
